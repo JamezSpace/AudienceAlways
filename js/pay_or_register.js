@@ -258,22 +258,6 @@ function valInputs(element) {
         array.push(resultPassword);
     }
 
-    const dupArray = [];
-    
-    for (let index = 0; index < array.length; index++) {
-        const element = array[index];
-
-        if (HTMLCollection.prototype.isPrototypeOf(element[0]) == true) {
-            for (let j = 0; j < element[0].length; j++) {
-                const el = [element[0][j], element[1]];
-                dupArray.push(el);
-            }
-        } else {
-            dupArray.push(element);
-        }
-    }
-
-    console.log(dupArray);
     // SEPARATE THE VALID INPUT FIELDS FROM THE INVALIDS
     for (let i = 0; i < array.length; i++) {
         const element = array[i];
@@ -306,7 +290,25 @@ function valInputs(element) {
 
         return false;
     }
+
+    // this ensures the plan is selected for successful submission
+    const radioButtons = document.querySelectorAll(".plans");
+    let count = 0;
     
+    for (let item = 0; item < radioButtons.length; item++) {
+        const element = radioButtons[item];
+
+        if (!element.checked) {
+            count ++;
+            console.log(count);
+        }
+
+        if (count == radioButtons.length) {
+            return false;
+        }
+        
+    }
+
     // this ensures date field is filled for successful submission
     if ((textHeading.innerText == "Purchase a Webinar" || textHeading.innerText == "Account Creation") && fullDate.innerText.length < 10) {
         return false;
