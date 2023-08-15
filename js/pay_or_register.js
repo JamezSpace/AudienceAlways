@@ -269,11 +269,6 @@ function valInputs(element) {
         }
     }
 
-    // if the person seeks to purchase a webinar then a date must be selected. Having length < 11 as a reference is because the shortest possible date is 10 characters(Friday/Monday 31, May)
-    // if (textHeading.innerText == "Purchase a Webinar" && fullDate.innerText.length < 10) {
-    //     return false;
-    // }
-
     if (invalids.length != 0) {
 
         // TO CHANGE THE COLOR OF THE LINE FOR THE INVALID INPUTS TO RED
@@ -292,24 +287,24 @@ function valInputs(element) {
     }
 
     // this ensures the plan is selected for successful submission
-    const radioButtons = document.querySelectorAll(".plans");
+    const radioButtons = document.getElementsByClassName("select");
     let count = 0;
     
-    for (let item = 0; item < radioButtons.length; item++) {
-        const element = radioButtons[item];
+    for (let index = 0; index < radioButtons.length; index++) {
+        const element = radioButtons[index];
 
         if (!element.checked) {
             count ++;
-            console.log(count);
+        }else{
+            break;
         }
 
         if (count == radioButtons.length) {
             return false;
         }
-        
     }
 
-    // this ensures date field is filled for successful submission
+    // this ensures date field is filled for successful submission. Having length < 11 as a reference is because the shortest possible date is 10 characters(Friday/Monday 31, May)
     if ((textHeading.innerText == "Purchase a Webinar" || textHeading.innerText == "Account Creation") && fullDate.innerText.length < 10) {
         return false;
     }
