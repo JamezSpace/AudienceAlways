@@ -282,7 +282,7 @@ function valInputs(element) {
             element.style.border = "1.5px solid gainsboro"; // default border settings
 
         }
-
+ 
         return false;
     }
 
