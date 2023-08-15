@@ -1,0 +1,376 @@
+:root {
+    --shadow-color: 215deg 22% 2%;
+    --shadow-elevation-low:
+        0px 0.1px 0.1px hsl(var(--shadow-color) / 0.28),
+        0px 0.1px 0.1px -1px hsl(var(--shadow-color) / 0.33),
+        0.1px 0.3px 0.4px -2px hsl(var(--shadow-color) / 0.38);
+    --shadow-elevation-medium:
+        0px 0.1px 0.1px hsl(var(--shadow-color) / 0.3),
+        0.1px 0.3px 0.4px -0.7px hsl(var(--shadow-color) / 0.33),
+        0.2px 0.6px 0.8px -1.3px hsl(var(--shadow-color) / 0.37),
+        0.5px 1.5px 1.9px -2px hsl(var(--shadow-color) / 0.41);
+    --shadow-elevation-high:
+        0px 0.1px 0.1px hsl(var(--shadow-color) / 0.28),
+        0.2px 0.5px 0.6px -0.3px hsl(var(--shadow-color) / 0.29),
+        0.3px 0.9px 1.1px -0.6px hsl(var(--shadow-color) / 0.31),
+        0.5px 1.5px 1.9px -0.9px hsl(var(--shadow-color) / 0.33),
+        0.7px 2.3px 2.9px -1.1px hsl(var(--shadow-color) / 0.35),
+        1.1px 3.5px 4.4px -1.4px hsl(var(--shadow-color) / 0.36),
+        1.6px 5.2px 6.5px -1.7px hsl(var(--shadow-color) / 0.38),
+        2.4px 7.6px 9.6px -2px hsl(var(--shadow-color) / 0.4);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.fa-calendar,
+.fa-leaf {
+    margin-right: 4px;
+}
+
+header {
+    width: 100%;
+    height: 13vh;
+    padding: 0 2%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: gray;
+    overflow: hidden;
+}
+
+.imageLogo {
+    width: 30%;
+    height: inherit;
+    background-image: url(../img/footerLogo.png);
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: 50%;
+}
+
+
+.material-symbols-outlined {
+    font-size: 2.5rem;
+    position: relative;
+    cursor: pointer;
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 300,
+        'GRAD' 0,
+        'opsz' 48
+}
+
+header i::before {
+    font-family: "Open Sans";
+    font-size: 1.5rem;
+    font-weight: 200;
+    content: "My Profile";
+    position: absolute;
+    right: -2em;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: all 0.75s ease;
+}
+
+header i:hover::before {
+    right: 1.7em;
+    opacity: 1;
+}
+
+
+main {
+    padding: 0 2.5%;
+}
+
+main article {
+    display: flex;
+    align-items: center;
+    position: relative;
+    font-size: 1.1rem;
+    margin-bottom: 5%;
+}
+
+main article p {
+    width: 50%;
+}
+
+main article .stat {
+    width: 30%;
+    height: fit-content;
+    padding: 2% 0;
+    border: 2px solid black;
+    border-radius: 20px;
+    position: absolute;
+    right: 10%;
+    text-align: center;
+    font-size: 1.15rem;
+}
+
+.stat h2 {
+    margin: 2.5% 0;
+}
+
+main .fullStat {
+    width: 100%;
+}
+
+main .fullStat .calendar {
+    width: 50%;
+    height: 50vh;
+    font-size: 1.5rem;
+}
+
+.calendar input[list="years"] {
+    margin-left: 10px;
+    width: 100px;
+    height: 30px;
+    font-size: 1.35rem;
+    padding: 5px 0 5px 5px;
+    box-sizing: border-box;
+    border: 0.5px solid gray;
+    border-radius: 5px;
+    outline: 0;
+    display: inline-block;
+}
+
+.calendar input[list="years"]:focus {
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 1px solid gray;
+}
+
+details {
+    padding: 1.5em;
+    cursor: pointer;
+}
+
+details:not(:last-child) {
+    border-bottom: 1px solid gainsboro;
+}
+
+details span {
+    font-size: 1.25rem;
+}
+
+.pane {
+    margin-bottom: 1em;
+    display: flex;
+    align-items: center;
+}
+
+.pane button {
+    min-width: 7%;
+    height: 3.5em;
+    border-radius: 7px;
+    border: 2px solid transparent;
+    outline: none;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.pane button.gen {
+    padding: 0.7em;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1.1em;
+}
+
+.pane button.gen:not(:first-child) {
+    cursor: default;
+    height: 2.5em !important;
+    padding: 0 0.5em !important;
+}
+
+.pane button.clearFilter {
+    height: fit-content !important;
+    padding: 0 !important;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    background-color: transparent;
+    color: whitesmoke;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.pane button.clearFilter:hover {
+    background-color: gray;
+    /* color: black; */
+}
+
+.filter,
+.sort {
+    display: inline-block;
+    position: relative;
+}
+
+#addFilter,
+#sortBy {
+    color: black;
+    background-color: transparent;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+}
+
+#addFilter:hover,
+#sortBy:hover {
+    background-color: whitesmoke;
+    opacity: 1;
+}
+
+#addFilter:focus {
+    border: 2px solid #035f8f;
+}
+
+#filterList {
+    width: 12em;
+    height: auto;
+    border-radius: 10px;
+    background-color: white;
+    display: none;
+    text-align: justify;
+    position: absolute;
+    left: 0;
+    z-index: 3;
+    box-shadow: var(--shadow-elevation-medium);
+
+}
+
+.tab ul {
+    list-style-type: none;
+    padding-inline-start: 0;
+    margin: 0.2em 0;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.tab hr {
+    border: 0.5px solid gainsboro;
+}
+
+.tab ul li {
+    min-width: 20%;
+    padding: 0 0.5em;
+    text-align: center;
+}
+
+.tab ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+.active {
+    color: #035f8f !important;
+    position: relative;
+}
+
+.active::after {
+    content: "";
+    width: 30px;
+    height: 2.5px;
+    border-radius: 5px 5px 0 0;
+    background-color: #035f8f;
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#filterList section {
+    padding: 0.5em;
+    text-align: center;
+}
+
+.tabContent {
+    animation: fadeEffect 1s;
+    display: none;
+}
+
+
+@keyframes fadeEffect {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+#monthBar,
+#yearBar {
+    width: 60%;
+    margin-bottom: 10px;
+}
+
+#plan .opt {
+    width: 6em;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+#plan input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    accent-color: rgb(3, 95, 143);
+}
+
+#sortList {
+    width: 50%;
+    font-size: 1.25rem;
+    background-color: bisque;
+    float: right;
+    border-radius: 0 0 7px 7px;
+    border-left: 2px solid #035f8f;
+    border-right: 2px solid #035f8f;
+    border-bottom: 2px solid #035f8f;
+}
+
+/* #sortList input[type="radio"]{
+    width: 100%;
+} */
+
+details table {
+    width: 100%;
+    border: 1px solid gainsboro;
+    border-radius: 10px;
+    /* padding: 0 0 1em 0; */
+    border-collapse: separate;
+    border-spacing: 0;
+    box-sizing: border-box;
+    background-color: #000105c9;
+    transition: transform 0.5s ease;
+    cursor: default;
+}
+
+details table thead {
+    text-align: left;
+    color: whitesmoke;
+}
+
+
+details table tr {
+    height: 50px;
+    text-align: center;
+}
+
+details table tbody {
+    background-color: whitesmoke;
+}
+
+details table thead th:not(:nth-child(3)) {
+    width: 18%;
+}

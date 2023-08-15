@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="fontawesome-free-6.4.0-web/css/all.css">
+    <link rel="preload" as="font" type="font/woff2" href="https://fonts.googleapis.com/css?family=Open+Sans"
+        crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="css/member.css">
+    <title>My Profile</title>
+</head>
+
+<body>
+    <header>
+        <a href="index.html" class="imageLogo"></a>
+        <i class="material-symbols-outlined">person</i>
+    </header>
+
+    <main>
+        <h1>Hi</h1>
+        <article>
+            <p>Welcome to your profile at Audience Always. This will be your hub to all webinars we offer and your
+                recent meetings setup through us.
+                <br><br>
+                We hope you do continue with us.
+            </p>
+
+            <div class="stat">
+                Webinars scheduled
+                <h2 id="webinarsNum">5</h2>
+                Total Webinar Duration
+                <h2 id="totalTime">1hr 48minutes</h2>
+            </div>
+        </article>
+
+        <details>
+            <summary><span>Plans Statistics</span></summary>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias doloribus harum possimus numquam
+                labore odio, velit illum esse debitis eos, ipsam neque magnam. Aspernatur et illo accusamus omnis ex
+                repellat.</p>
+        </details>
+
+        <details>
+            <summary><span>Payment Statements</span></summary>
+            <div class="pane" id="pane">
+                <button class="gen">All</button>
+
+                <div class="filter">
+                    <button type="button" id="addFilter"><i class="fa-solid fa-plus"></i> Add Filter</button>
+                    <div id="filterList">
+                        <div class="tab">
+                            <ul>
+                                <li><a onclick="makeActive(this)" aria-valuetext="date" class="filtertab">Date</a></li>
+                                <li><a onclick="makeActive(this)" aria-valuetext="plan" class="filtertab">Plan</a></li>
+                            </ul>
+                            <hr>
+                        </div>
+
+                        <section id="date" class="tabContent">
+                            Month: <select name="months" id="monthBar" onchange="storeMonthValue(this.value)">
+                                <option value=""></option>
+                                <option value="January">January</option>
+                                <option value="February">February</option>
+                                <option value="March">March</option>
+                                <option value="April">April</option>
+                                <option value="May">May</option>
+                                <option value="June">June</option>
+                                <option value="July">July</option>
+                                <option value="August">August</option>
+                                <option value="September">September</option>
+                                <option value="October">October</option>
+                                <option value="November">November</option>
+                                <option value="December">December</option>
+                            </select>
+                            <br>
+                            Year: <select id="yearBar" onchange="storeYearValue(this.value)">
+                                <option></option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                            </select>
+                        </section>
+                        <section id="plan" class="tabContent">
+                            <div class="opt">
+                                <input type="radio" name="pick_plan" id="alpha" value="Alpha" onclick="planSelected(this.value)"><label for="alpha">Alpha</label>
+                            </div>
+
+                            <div class="opt">
+                                <input type="radio" name="pick_plan" id="beta" value="Beta" onclick="planSelected(this.value)"><label for="beta">Beta</label>
+                            </div>
+
+                            <div class="opt">
+                                <input type="radio" name="pick_plan" id="delta" value="Delta" onclick="planSelected(this.value)"><label for="delta">Delta</label>
+                            </div>
+
+                            <div class="opt">
+                                <input type="radio" name="pick_plan" id="gold" value="Gold" onclick="planSelected(this.value)"><label for="gold">Gold</label>
+                            </div>
+                            
+                        </section>
+                    </div>
+                </div>
+                <div class="sort">
+                    <button id="sortBy"><i class="fa-solid fa-sort"></i> Sort By</button>
+
+
+                    <!-- <section id="sortList">
+                    <input type="radio" name="sort_parameter" id="">Date<br>
+                    <input type="radio" name="sort_parameter" id="">Plan<br>
+                    <input type="radio" name="sort_parameter" id="">Amount
+                    </section> -->
+                </div>
+            </div>
+
+
+            <table id="payment_table">
+                <thead>
+                    <th>Transaction ID</th>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Plan</th>
+                    <th>Amount</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                        <td>--</td>
+                    </tr>
+                </tbody>
+            </table>
+        </details>
+
+        <!-- <div class="fullStat">
+            <hr>
+            <h2>Full statistics</h2>
+            <div class="calendar">
+                <label for="">Year: </label>
+                <input list="years" id="yearBar">
+
+                <datalist id="years">
+                    <option value="2010"></option> //comment this line
+                </datalist>
+                
+                <br><br>
+
+                <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=1&bgcolor=%23ffffff&ctz=UTC&showTitle=0&showNav=0&showDate=1&src=OWY4NjUwNGY3ZDRlZDQwNjQyMjBhODk4OWM3YzdmODM2OWRkYmEwZDE4NjVmNTM2Zjk1ZWVmZTFiNDE1ZGNlMUBncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23000000" style="border-width:0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: gray;" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+            </div>
+        </div> -->
+    </main>
+    <script src="js/member.js"></script>
+</body>
+
+</html>

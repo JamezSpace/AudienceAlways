@@ -1,0 +1,543 @@
+:root {
+    --text: #fafbff;
+    --background: #000105;
+    --primary: #035f8f;
+    --secondary: #1c1c1c;
+    --accent: #11e1db;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.overlay {
+    width: 100%;
+    height: 100dvh;
+    backdrop-filter: blur(5px);
+    position: absolute;
+    z-index: 10;
+}
+
+.wrapper {
+    position: absolute;
+    z-index: 999;
+    width: 40%;
+    height: 70%;
+    top: 50%;
+    left: 50%;
+    color: var(--text);
+    transform: translate(-50%, -50%);
+    background: var(--primary);
+    border: 2px solid var(--text);
+    border-radius: 20px;
+    scale: 0;
+    transition: scale .2s ease;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgb(255, 255, 255, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper.popup {
+    scale: 1;
+}
+
+.wrapper #exitLogin {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    font-size: 1.75em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background-color: var(--background);
+}
+
+.wrapper .form {
+    width: 100%;
+    padding: 10%;
+}
+
+.form h2 {
+    font-size: 2em;
+    margin: 0 0 .5% 0;
+    text-align: center;
+}
+
+.inputParameter {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid var(--text);
+    margin: 5% 0;
+}
+
+.inputParameter label {
+    position: absolute;
+    left: 3.5%;
+    top: 25%;
+    font-size: 1.25rem;
+    pointer-events: none;
+    transition: .2s;
+}
+
+.inputParameter input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 0;
+    color: var(--text);
+    font-size: 1.05rem;
+    box-sizing: border-box;
+    padding: 10px 40px 0 15px;
+}
+
+.inputParameter input:focus {
+    outline: 0;
+}
+
+.inputParameter i {
+    position: absolute;
+    right: 5%;
+    font-size: 1.2rem;
+    line-height: 50px;
+}
+
+.inputParameter input::placeholder{
+    color: transparent;
+}
+
+.inputParameter input:focus + label,
+.inputParameter input:not(:placeholder-shown) + label{
+    top: -5%;
+}
+
+.remember_forgotPsd {
+    font-size: 1.05rem;
+    margin: 3% 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.remember_forgotPsd label input {
+    accent-color: var(--secondary);
+    margin-right: 5px;
+}
+
+.remember_forgotPsd a {
+    color: var(--text);
+    text-decoration: none;
+}
+
+.remember_forgotPsd a:hover {
+    text-decoration: underline;
+}
+
+#login {
+    width: 100%;
+    height: 3.5em;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.firstPage {
+    width: 100%;
+    height: 150vh;
+    background-image: url(../img/182428240217.jpg);
+    /* come back here */
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #050306;
+    /* text-align: center; */
+    position: relative;
+
+
+
+
+    --mask:
+        radial-gradient(200.00px at 50% calc(100% - 275.60px), #000 99%, #0000 101%) calc(50% - 212px) 0/424px 100%,
+        radial-gradient(200.00px at 50% calc(100% + 169.60px), #0000 99%, #000 101%) 50% calc(100% - 106px)/424px 100% repeat-x;
+    -webkit-mask: var(--mask);
+    mask: var(--mask);
+}
+
+.firstPage header {
+    width: 100%;
+    height: 10vh;
+    padding: 0 2%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.imageLogo {
+    width: 30%;
+    height: inherit;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.imageLogo img {
+    width: 15%;
+}
+
+.imageLogo .text {
+    margin-left: 1%;
+    color: var(--text);
+    font-size: 1.05rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-optical-sizing: auto;
+    letter-spacing: 6px;
+}
+
+.imageLogo::before {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 2px;
+    transform: translate(0, 5vh);
+    background-color: var(--text);
+}
+
+.imageLogo .text span {
+    letter-spacing: .1px;
+    display: block;
+    transform: scale(1, .85);
+}
+
+.firstPage header nav {
+    width: 40%;
+    padding-right: 1.55%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.firstPage header nav a {
+    color: var(--text);
+    text-decoration: none;
+    text-transform: capitalize;
+    position: relative;
+}
+
+.firstPage header nav a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    /* display: inline-block; */
+    transform: translate(-40px, 3px);
+    background-color: white;
+    transition: .2s linear;
+    transition-property: width;
+}
+
+.firstPage header nav a:hover::after {
+    width: 40px;
+}
+
+.firstPage header nav button {
+    width: 6em;
+    height: 3em;
+    background-color: transparent;
+    color: var(--text);
+    border-radius: 25px 5px;
+    border: 2px solid var(--primary);
+    outline: none;
+    cursor: pointer;
+    font-size: .9rem;
+    transition: .2s linear;
+}
+
+.firstPage header nav button:hover {
+    background: linear-gradient(to bottom right, var(--primary) 20%, var(--accent));
+    background-clip: border;
+    -webkit-background-clip: border;
+    color: var(--text);
+    border: none;
+    transform: translateY(-1.5px);
+}
+
+.firstPage article {
+    padding: 0 15vw;
+    text-align: center;
+    color: var(--text);
+}
+
+.firstPage article h1 {
+    font-size: 2.45rem;
+    letter-spacing: -1px;
+    margin-bottom: 1.5%;
+}
+
+.firstPage article p {
+    padding: 0 8vw;
+    box-sizing: border-box;
+    margin-bottom: 1.5%;
+}
+
+.firstPage article a {
+    width: 15vw;
+    height: 10vh;
+    border-radius: 30px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text);
+    text-decoration: none;
+    background-color: var(--primary);
+}
+
+.firstPage article a:hover {
+    background-color: rgb(3, 86, 131);
+}
+
+.firstPage article a:focus {
+    box-shadow: 0 0 0 1px rgb(3, 118, 179);
+}
+
+.firstPage article a span {
+    margin-left: 10px;
+}
+
+.firstPage video {
+    max-width: 55vw;
+    position: absolute;
+    bottom: 12%;
+    left: 50%;
+    translate: -50% 0;
+}
+
+#interlude {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bolder;
+    margin: 10% auto;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+}
+
+#interlude .colorText {
+    font-size: 4rem;
+    background: linear-gradient(to bottom right, var(--primary), var(--accent));
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+#interlude .underline {
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    transform: translate(-15.5vw, 1vh);
+    background-color: black;
+    transition: 2.5s linear;
+    transition-property: width;
+}
+
+main {
+    width: 100%;
+    padding: 0 3%;
+    box-sizing: border-box;
+}
+
+.planDetails {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    row-gap: 2em;
+}
+
+.planDetails .plan {
+    width: 40%;
+    height: 40%;
+    border: 1px solid black;
+    border-radius: 30px;
+    text-align: center;
+    padding: 2%;
+    font-size: 1.25rem;
+}
+
+.plan h3 {
+    margin: 0.5em 0;
+}
+
+.plan ul {
+    max-width: 50vw;
+    list-style-type: none;
+    padding: 0;
+    margin: 0.25em 0;
+    text-align: start;
+}
+
+.plan ul li {
+    margin-bottom: 2.5%;
+}
+
+.streamsPreview h1 {
+    margin: 1em 0 0;
+}
+
+.streamsPreview .streams {
+    padding: 1.5% 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.2em;
+}
+
+.streamsPreview .streams video {
+    max-width: 40vw;
+    border-radius: 10px;
+}
+
+.faq{
+    width: 100%;
+}
+/* .division{
+    margin-bottom: 2px;
+} */
+.division .question{
+    width: 100%;
+    padding:  0 3%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    border-top: 0.5px solid gainsboro;
+}
+.question span{
+    font-size: 2em;
+    transition: rotate 0.2s ease;
+}
+.question input[type="checkbox"]{
+    width: 95%;
+    height: 100%;
+    position: absolute;
+    cursor: pointer;
+    margin: 0;
+    appearance: none;
+}
+.answer{
+    width: 100%;
+    height: 0;
+    padding: 0 0;
+    background-color: gainsboro;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    transition: 0.2s ease;
+    transition-property: height, padding;
+}
+.question:hover{
+    background-color: rgb(220, 220, 220, 0.5);
+}
+
+footer {
+    width: 100%;
+    height: 50vh;
+    padding: 3%;
+    box-sizing: border-box;
+    /* background-color: var(--text); */
+    background-color: var(--background);
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    /* gap: 2em; */
+}
+
+#footerLogo{
+    opacity: 0.9;
+    width: 50%;
+}
+
+footer img {
+    max-width: 80%;
+    max-height: 70%;
+    object-fit: contain;
+    object-position: left;
+}
+
+footer div {
+    width: 70%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+footer a {
+    text-decoration: none;
+    /* color: var(--background); */
+    color: var(--text);
+    opacity: 0.7;
+    display: block;
+}
+
+footer a:hover {
+    opacity: 1;
+}
+
+footer .information .socialProfiles {
+    margin-top: 10px;
+}
+
+
+footer .information a::before {
+    font-family: "Font Awesome 6 Free";
+    margin-right: 10px;
+}
+
+footer .information #mail::before {
+    content: "\f0e0";
+}
+
+footer .information #location::before {
+    content: "\f1ad";
+}
+
+
+
+.socialProfiles a {
+    position: relative;
+}
+
+.socialProfiles a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    /* display: inline-block; */
+    transform: translate(-30px, 3px);
+    background-color: black;
+    transition: .2s linear;
+    transition-property: width;
+}
+
+.socialProfiles a:hover::after {
+    width: 30px;
+}

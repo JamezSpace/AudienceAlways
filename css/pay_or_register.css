@@ -1,0 +1,347 @@
+:root {
+    --text: #fafbff;
+    --background: #000105;
+    --primary: #035f8f;
+    --secondary: #1c1c1c;
+    --accent: #11e1db;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: gainsboro;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #555;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+header {
+    width: 100%;
+    height: 10vh;
+    padding: 0 2%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.imageLogo {
+    width: 30%;
+    height: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.imageLogo img {
+    width: 15%;
+}
+
+.imageLogo .text {
+    margin-left: 1%;
+    color: var(--background);
+    font-size: 1.05rem;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    font-optical-sizing: auto;
+    letter-spacing: 6px;
+}
+
+.imageLogo::before {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 2px;
+    transform: translate(0, 5vh);
+    background-color: var(--background);
+}
+
+.imageLogo .text span {
+    letter-spacing: .1px;
+    display: block;
+    transform: scale(1, .85);
+}
+
+main {
+    padding: 0 2.5%;
+}
+
+.pane {
+    width: 100%;
+    height: 90vh;
+    padding: 0 5%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.pane form {
+    width: 50%;
+    height: 95%;
+    padding: 0 2.5%;
+    font-size: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+.pane form h2 {
+    margin: 1% 0 2% 0;
+}
+
+.pane form section:not(:last-of-type) {
+    display: flex;
+    flex-direction: column;
+}
+
+.pane form .generalInputStyle {
+    height: 2.5vh;
+    border: 1.5px solid darkgray;
+    border-radius: 10px;
+    padding: 2% 3%;
+    font-size: 1.2rem;
+    outline: none;
+}
+
+.entity {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    row-gap: .5em;
+    column-gap: .5em;
+}
+
+.entity div {
+    width: 40%;
+    height: 8em;
+    border: 1px solid gainsboro;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5%;
+    box-sizing: border-box;
+    position: relative;
+    cursor: pointer;
+}
+
+.entity div:focus-within {
+    border: 2px solid black;
+}
+
+.entity div .select {
+    width: 100%;
+    height: 100%;
+    appearance: none;
+    position: absolute;
+}
+
+.entity div .plans {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid darkgray;
+    margin: 0;
+    appearance: none;
+    position: absolute;
+    top: 8%;
+    right: 10%;
+}
+
+.entity div .select:checked~.plans {
+    border: 0;
+}
+
+.entity div .select:checked~.plans::after {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 1.25em;
+    content: "\f00c";
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.entity div i {
+    font-size: 5rem;
+    display: block;
+}
+
+.entity div h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+#fullDate{
+    text-align: center;
+}
+.scheduleDate{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+#passwordForRegistration {
+    display: none;
+}
+
+.registerMe {
+    display: flex;
+    align-items: center;
+}
+
+.registerMe input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    /* come back to style the checkbox and change border color to gainsboro */
+}
+
+.fa-asterisk {
+    color: red;
+    font-size: 0.9rem;
+    display: inline-flex;
+}
+
+.pane form p {
+    margin: 1%;
+    font-size: 1rem;
+}
+
+.pane form button {
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    border: 2px solid black;
+    outline: 0;
+    padding: 2.5% 0;
+    cursor: pointer;
+}
+
+.pane .image {
+    width: 47%;
+    height: 95%;
+    border-radius: 15px;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.image img {
+    width: 50%;
+    height: 40%;
+    object-fit: contain;
+    /* object-position: center; */
+}
+
+.image .description {
+    width: 100%;
+    height: 60%;
+    border-radius: 0 0 15px 15px;
+    padding: 7% 0;
+    box-sizing: border-box;
+    background-color: blueviolet;
+}
+.description ul{
+    padding-inline-start: 35%;
+}
+
+.image .planPaidDetails {
+    width: 50%;
+    height: 15%;
+    border-radius: 10px;
+    padding: 1.5%;
+    box-sizing: border-box;
+    position: absolute;
+    display: none;
+    align-items: center;
+    background-color: aliceblue;
+    bottom: 52%;
+}
+
+.planPaidDetails .icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    background-color: chocolate;
+}
+
+.planPaidDetails .text {
+    display: flex;
+    flex-direction: column;
+    margin-left: 8%;
+}
+
+.text h3 {
+    margin: 3px 0;
+    font-weight: 500;
+}
+
+#planPaid {
+    color: gray;
+}
+
+#registrationSuccess {
+    width: 30%;
+    height: 50%;
+    border: 2px solid black;
+    border-radius: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10vh;
+    background-color: white;
+    color: green;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#registrationSuccess h1 {
+    font-size: 150%;
+    margin: 0;
+}
+
+#registrationSuccess i {
+    font-size: 5em;
+    margin-top: 2.5%;
+}
