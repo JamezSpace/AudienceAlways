@@ -93,6 +93,35 @@ header {
 
 main {
     padding: 0 2.5%;
+    position: relative;
+}
+
+.cross-page-vertical-slider {
+    width: 5%;
+    height: 185vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(-1%, -50%);
+}
+
+.line {
+    width: 2px;
+    height: calc(185vh - 7%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-40%, -50%);
+    background: rgb(28, 28, 28);
+    background: radial-gradient(circle, rgba(28, 28, 28, 1) 0%, rgba(3, 95, 143, 1) 90%, rgba(17, 225, 219, 1) 100%);
+}
+
+#tear {
+    rotate: 180deg;
 }
 
 .fill-form {
