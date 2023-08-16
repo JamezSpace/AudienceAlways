@@ -7,23 +7,25 @@
 }
 
 /* width */
-::-webkit-scrollbar {
+form::-webkit-scrollbar {
     width: 5px;
+    /* position: absolute;
+    left: 0; */
 }
 
 
 /* Track */
-::-webkit-scrollbar-track {
+form::-webkit-scrollbar-track {
     background: gainsboro;
 }
 
 /* Handle */
-::-webkit-scrollbar-thumb {
+form::-webkit-scrollbar-thumb {
     background: #555;
 }
 
 /* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
+form::-webkit-scrollbar-thumb:hover {
     background: var(--secondary);
 }
 
@@ -35,6 +37,10 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Open Sans', sans-serif;
+}
+
+body::-webkit-scrollbar {
+    display: none;
 }
 
 header {
@@ -89,7 +95,7 @@ main {
     padding: 0 2.5%;
 }
 
-.pane {
+.fill-form {
     width: 100%;
     height: 90vh;
     padding: 0 5%;
@@ -99,7 +105,7 @@ main {
     align-items: center;
 }
 
-.pane form {
+.fill-form form {
     width: 50%;
     height: 95%;
     padding: 0 2.5%;
@@ -111,16 +117,16 @@ main {
     box-sizing: border-box;
 }
 
-.pane form h2 {
+.fill-form form h2 {
     margin: 1% 0 2% 0;
 }
 
-.pane form section:not(:last-of-type) {
+.fill-form form section:not(:last-of-type) {
     display: flex;
     flex-direction: column;
 }
 
-.pane form .generalInputStyle {
+.fill-form form .generalInputStyle {
     height: 2.5vh;
     border: 1.5px solid darkgray;
     border-radius: 10px;
@@ -206,10 +212,12 @@ main {
     font-weight: 500;
     margin-bottom: 0;
 }
-#fullDate{
+
+#fullDate {
     text-align: center;
 }
-.scheduleDate{
+
+.scheduleDate {
     display: flex;
     justify-content: space-evenly;
 }
@@ -236,12 +244,12 @@ main {
     display: inline-flex;
 }
 
-.pane form p {
+.fill-form form p {
     margin: 1%;
     font-size: 1rem;
 }
 
-.pane form button {
+.fill-form form button {
     background-color: black;
     color: white;
     border-radius: 10px;
@@ -251,7 +259,7 @@ main {
     cursor: pointer;
 }
 
-.pane .image {
+.fill-form .image {
     width: 47%;
     height: 95%;
     border-radius: 15px;
@@ -279,7 +287,8 @@ main {
     box-sizing: border-box;
     background-color: blueviolet;
 }
-.description ul{
+
+.description ul {
     padding-inline-start: 35%;
 }
 
@@ -316,6 +325,37 @@ main {
 
 #planPaid {
     color: gray;
+}
+
+.pay-to {
+    text-align: center;
+    height: 100vh;
+}
+
+.pay-to main h2 {
+    margin: 15px 0 10px 0;
+}
+
+.pay-to main ul {
+    padding-inline-start: 35%;
+    margin-top: 0;
+}
+
+.pay-to main ul li {
+    display: block;
+    text-align: left;
+    font-size: 1.35rem;
+    margin-bottom: 5px;
+}
+
+.pay-to main fieldset {
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+}
+
+.pay-to main fieldset legend {
+    padding-inline: 10px;
 }
 
 #registrationSuccess {

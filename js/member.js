@@ -1,8 +1,11 @@
+const nameHeading = document.getElementById("heading").innerText;
 const filterBtn = document.getElementById("addFilter");
 const filterPg = document.getElementById("filterList");
 const tabs = document.getElementsByClassName("filtertab");
 const tabContent = document.getElementsByClassName("tabContent");
 const table = document.getElementById("payment_table");
+
+alert(nameHeading);
 
 filterBtn.addEventListener("click", e => {
     filterPg.style.display = "block";
@@ -10,18 +13,6 @@ filterBtn.addEventListener("click", e => {
     tabContent[0].style.display = "block"; // display Date filter contents
     table.style.transform = "translateY(70px)";
 });
-
-
-// filterBtn.addEventListener("blur", e => {
-
-//     if (condition) {
-
-//     }
-//     filterPg.style.display= "none";
-//     tabs[0].className.replace("active", "");
-//     tabContent[0].style.display = "none";
-//     table.style.transform = "translateY(0)";
-// });
 
 function makeActive(e) {
     for (let i = 0; i < tabs.length; i++) {

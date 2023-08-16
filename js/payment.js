@@ -3,7 +3,7 @@
 // consequently, the other option is to run your script in the body, that is, have the script code in the body rather the head, coz then, the body would be loading or have loaded, hence, having null wont happen
 
 beginFunctions();
-const textHeading = document.getElementById("pay_or_register_text");
+const textHeading = document.getElementById("payment_text");
 function beginFunctions() {
     const passwordForRegistration = document.getElementById("passwordForRegistration");
     const registerWithAA = document.getElementById("register");
@@ -245,7 +245,6 @@ function valInputs(element) {
     valDate();
     let resultPassword;
     const array = [resultName, resultSName, resultEmail];
-    // console.log(array);
 
     if (array[1][1]) // if name validation(item at index 1 in the array) is valid, store the name in a localStrorage that would be used by profile page. array[1] represents the input field for the name and array[1][1] represents the validation boolean.
     {
@@ -282,7 +281,6 @@ function valInputs(element) {
             element.style.border = "1.5px solid gainsboro"; // default border settings
 
         }
- 
         return false;
     }
 
