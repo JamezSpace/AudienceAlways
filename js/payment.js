@@ -31,7 +31,10 @@ function beginFunctions() {
             e.preventDefault();
             alert("INVALID INPUT SOMEWHERE");
         } else {
+            let body = document.getElementsByTagName("body")[0];
+            body.style.overflow = "auto";
             window.location = "#payment";
+            body.style.overflow = "hidden";
             // document.aud_form.action = "member.html";
         }
     });
