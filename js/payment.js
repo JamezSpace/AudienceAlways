@@ -31,9 +31,8 @@ function beginFunctions() {
             e.preventDefault();
             alert("INVALID INPUT SOMEWHERE");
         } else {
-            setTimeout(successBox.style.display = "flex", 5000);
+            window.location = "#payment";
             // document.aud_form.action = "member.html";
-
         }
     });
 }

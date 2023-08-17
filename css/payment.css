@@ -6,6 +6,10 @@
     --accent: #11e1db;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 /* width */
 form::-webkit-scrollbar {
     width: 5px;
