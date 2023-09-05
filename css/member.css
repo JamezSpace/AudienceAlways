@@ -50,18 +50,12 @@ header {
     background-position: left;
     background-repeat: no-repeat;
     background-size: 50%;
+    color: #ff2c2c;
 }
 
 
-.material-symbols-outlined {
+#user_icon {
     font-size: 2.5rem;
-    position: relative;
-    cursor: pointer;
-    font-variation-settings:
-        'FILL' 0,
-        'wght' 300,
-        'GRAD' 0,
-        'opsz' 48
 }
 
 header i::before {
@@ -165,22 +159,21 @@ details span {
 
 .pane button {
     min-width: 7%;
-    height: 3.5em;
+    padding: 15px;
     border-radius: 7px;
-    border: 2px solid transparent;
     outline: none;
     box-sizing: border-box;
     cursor: pointer;
 }
 
 .pane button.gen {
-    padding: 0.7em;
     background-color: black;
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-right: 1.1em;
+    border: 2px solid transparent;
 }
 
 .pane button.gen:not(:first-child) {
@@ -191,7 +184,7 @@ details span {
 
 .pane button.clearFilter {
     height: fit-content !important;
-    padding: 0 !important;
+    padding: 0 2px !important;
     border: none;
     border-radius: 50%;
     font-size: 1.1rem;
@@ -202,9 +195,13 @@ details span {
     margin-left: 5px;
 }
 
+.inButtonIcon{
+    margin-right: 10px;
+    font-size: 1.5rem;
+}
+
 .pane button.clearFilter:hover {
     background-color: gray;
-    /* color: black; */
 }
 
 .filter,
@@ -219,16 +216,19 @@ details span {
     background-color: transparent;
     font-size: 0.95rem;
     box-sizing: border-box;
+    border: 2px solid transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #addFilter:hover,
 #sortBy:hover {
-    background-color: whitesmoke;
-    opacity: 1;
+    background-color: lightgray;
 }
 
 #addFilter:focus {
-    border: 2px solid #035f8f;
+    border-color: #035f8f;
 }
 
 #filterList {

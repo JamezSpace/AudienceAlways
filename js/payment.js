@@ -49,7 +49,7 @@ function valGenName() {
 
     if (inputName.length == 0) {
         let notif = "  Name field cannot be left blank";
-        status.innerHTML = "<i class=\"fa-solid fa-asterisk\"></i>" + notif;
+        status.innerHTML = "<iconify-icon icon=\"clarity:error-line\" style=\"color: #ff2c2c;\" width=\"30\" height=\"30\"></iconify-icon>" + notif;
     } else if (inputName.split(" ").length < 2) {
         let notif = "  Fill in your full name separated by a space ' '";
         status.innerHTML = "<i class=\"fa-solid fa-asterisk\"></i>" + notif;

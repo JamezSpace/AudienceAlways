@@ -54,13 +54,17 @@ for (let i = 0; i < els.length; i++) {
             const span = parent.lastElementChild;
             if (answer == parent.nextElementSibling){
                 if(element.checked){
-                    answer.style.height = "5em";
-                    answer.style.padding = "0 5%";
                     span.style.rotate = "45deg";
+                    answer.style.opacity = "1";
+                    answer.style.height = "10%";
+                    answer.style.padding = "1% 5%";
+                    
                 }else {
+                    span.style.rotate = "90deg";
+                    answer.style.opacity = "0";
                     answer.style.height = "0";
                     answer.style.padding = "0 0";
-                    span.style.rotate = "90deg";
+                    
                 }
             }
         });

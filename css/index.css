@@ -108,10 +108,11 @@ body {
     outline: 0;
 }
 
-.inputParameter i {
+.inputParameter span {
     position: absolute;
+    bottom: -2.5%;
     right: 5%;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     line-height: 50px;
 }
 
@@ -238,20 +239,24 @@ body {
     text-decoration: none;
     text-transform: capitalize;
     position: relative;
+    border: 1px solid transparent;
 }
 
-.firstPage header nav a::after {
+.firstPage header nav a:hover {
+    border-bottom: 1px solid white;
+}
+
+/* .firstPage header nav a::after {
     content: "";
     position: absolute;
     bottom: 0;
     width: 0;
     height: 2px;
-    /* display: inline-block; */
     transform: translate(-40px, 3px);
     background-color: white;
     transition: .2s linear;
     transition-property: width;
-}
+} */
 
 .firstPage header nav a:hover::after {
     width: 40px;
@@ -263,20 +268,20 @@ body {
     background-color: transparent;
     color: var(--text);
     border-radius: 25px 5px;
-    border: 2px solid var(--primary);
+    border: none;
     outline: none;
     cursor: pointer;
     font-size: .9rem;
     transition: .2s linear;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 .firstPage header nav button:hover {
-    background: linear-gradient(to bottom right, var(--primary) 20%, var(--accent));
-    background-clip: border;
-    -webkit-background-clip: border;
-    color: var(--text);
-    border: none;
-    transform: translateY(-1.5px);
+    background: var(--text);
+    color: var(--background);
+    box-shadow: 0 0 5px var(--text), 0 0 25px var(--text), 0 0 50px var(--text), 0 0 200px var(--text);
+    --webkit-box-reflect: below 1px linear-gradient(transparent, var(--primary))
 }
 
 .firstPage article {
@@ -318,7 +323,9 @@ body {
 }
 
 .firstPage article a span {
-    margin-left: 10px;
+    margin-left: 8px;
+    display: flex;
+    align-items: center;
 }
 
 .firstPage video {
@@ -416,6 +423,7 @@ main {
 
 .faq{
     width: 100%;
+    margin-bottom: 3%;
 }
 /* .division{
     margin-bottom: 2px;
@@ -451,7 +459,7 @@ main {
     display: flex;
     align-items: center;
     overflow: hidden;
-    transition: 0.2s ease;
+    transition: all .2s ease;
     transition-property: height, padding;
 }
 .question:hover{
@@ -507,16 +515,16 @@ footer .information .socialProfiles {
 
 
 footer .information a::before {
-    font-family: "Font Awesome 6 Free";
     margin-right: 10px;
 }
 
 footer .information #mail::before {
-    content: "\f0e0";
+    content: url('https://api.iconify.design/system-uicons/mail.svg?color=%23fafbff&width=24&height=20');
+    
 }
 
 footer .information #location::before {
-    content: "\f1ad";
+    content: url('https://api.iconify.design/icomoon-free/office.svg?color=%23fafbff&width=24&height=20');
 }
 
 
