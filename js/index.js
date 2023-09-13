@@ -25,22 +25,6 @@ for (let index = 0; index < vids.length; index++) {
     element.addEventListener("mouseout", function () { this.controls = false; });
 }
 
-const interludeText = document.getElementById("interlude");
-
-
-const observer = new IntersectionObserver(
-    infoArray => {
-        infoArray.forEach(info => {
-            const element = document.querySelector("#interlude .underline");
-            if (info.isIntersecting)
-                console.log(element);
-
-        });
-    }, { rootMargin: "-5%" }
-);
-
-observer.observe(interludeText);
-
 // FAQ section
 const els = document.getElementsByName("chk");
 for (let i = 0; i < els.length; i++) {
