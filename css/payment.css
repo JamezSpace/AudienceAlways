@@ -13,8 +13,6 @@ html{
 /* width */
 form::-webkit-scrollbar {
     width: 5px;
-    /* position: absolute;
-    left: 0; */
 }
 
 
@@ -41,7 +39,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Open Sans', sans-serif;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 body::-webkit-scrollbar {
@@ -65,6 +63,7 @@ header {
     align-items: center;
     justify-content: center;
     position: relative;
+    cursor: pointer;
 }
 
 .imageLogo img {

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/index_responsive.css">
     <link rel="preload" as="font" type="font/woff2" href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat"
         crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans|Montserrat">
@@ -48,11 +49,13 @@
                 </div>
             </div>
             <nav>
-                <a href="#streams">streams</a>
-                <a href="#faqs">FAQs</a>
-                <a href="#">contact</a>
-                <button id="openLogin" type="button">Login <iconify-icon icon="solar:login-outline" width="20"
-                        height="20"></iconify-icon></button>
+                <a href="#streams" class="nav-links">streams</a>
+                <a href="#faqs" class="nav-links">FAQs</a>
+                <a href="#" class="nav-links">contact</a>
+                <a id="openLogin" class="nav-links">Login <iconify-icon icon="iconoir:user" width="20" height="20"></iconify-icon></a>
+                <a href="#" id="hamburger-menu">
+                    <iconify-icon icon="mdi:hamburger-menu" width="30" height="30"></iconify-icon>
+                </a>
             </nav>
         </header>
         <article>
@@ -76,7 +79,7 @@
             <h1><span class="colorText">Bringing</span><br>you & potential customers<br>to the same room
                 <u>digitally!</u></h1>
         </div>
-        <!-- </div> -->
+        <div id="attribution"><a href="https://storyset.com/work">Work illustrations by Storyset</a></div>
     </div>
 
     <main>

@@ -1,0 +1,32 @@
+/* TABLET CONFIGURATION */
+@media (max-width: 768px) {
+    html{
+        font-size: 13.5px;
+    }
+}
+
+@media (max-width : 500px) {
+    html, body{
+        width: 100%;
+        overflow-x: hidden;
+    }
+    .firstPage header nav{
+        justify-content: flex-end;
+    }
+    a.nav-links{
+        display: none;
+    }
+    #hamburger-menu{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .firstPage article h1{
+        font-size: 1.55em;
+    }
+
+    .streamsPreview .streams video{
+        max-width: 80%;
+    }
+}

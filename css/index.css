@@ -6,14 +6,16 @@
     --accent: #11e1db;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
-body {
+html, body {
     margin: 0;
     padding: 0;
     font-family: 'Open Sans', sans-serif;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+h1{
+    font-size: 1.55em;
 }
 
 .overlay {
@@ -160,7 +162,6 @@ body {
 
 .firstPage {
     width: 100%;
-    height: 150vh;
     background-color: var(--background);
     position: relative;
 }
@@ -184,56 +185,61 @@ body {
 }
 
 .imageLogo img {
-    width: 15%;
+    width: 2em;
+    object-fit: contain;
 }
 
 .imageLogo .text {
     margin-left: 1%;
     color: var(--text);
-    font-size: 1.05rem;
+    font-size: .75em;
     font-family: "Montserrat", sans-serif;
     font-weight: 700;
     font-optical-sizing: auto;
-    letter-spacing: 6px;
-}
-
-.imageLogo::before {
-    content: "";
-    position: absolute;
-    width: 50%;
-    height: 2px;
-    transform: translate(0, 5vh);
-    background-color: var(--text);
+    letter-spacing: .35em;
 }
 
 .imageLogo .text span {
-    letter-spacing: .1px;
+    letter-spacing: .1em;
     display: block;
     transform: scale(1, .85);
 }
 
 .firstPage header nav {
     width: 40%;
-    padding-right: 1.55%;
     box-sizing: border-box;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.firstPage header nav a {
+a.nav-links {
     color: var(--text);
     text-decoration: none;
     text-transform: capitalize;
     position: relative;
     border: 1px solid transparent;
+    display: flex;
+    align-items: center;
 }
 
-.firstPage header nav a:hover {
+
+#hamburger-menu{
+    padding: 3px;
+    color: var(--text);
+    height: inherit;
+    display: none;
+}
+
+a.nav-links:hover {
     border-bottom: 1px solid var(--text);
 }
 
-.firstPage header nav button {
+#hamburger-menu:hover{
+    background-color: #C8D3DA;
+}
+
+#openLogin {
     padding: .5em .75em;
     background-color: #C8D3DA;
     color: var(--text);
@@ -244,24 +250,19 @@ body {
     font-size: .9rem;
     transition: .2s linear;
     text-transform: uppercase;
-    display: flex;
-    align-items: center;
-}
-
-.firstPage header nav button:hover {
-    background-color: hsl(203, 20%, 70%);
 }
 
 .firstPage article {
-    padding: 0 15vw;
+    padding: 0 5%;
     text-align: center;
     color: var(--text);
 }
 
 .firstPage article h1 {
-    font-size: 2.45rem;
+    font-size: 2.5em;
     letter-spacing: -1px;
     margin-bottom: 1.5%;
+    margin-top: 3%;
 }
 
 .firstPage article p {
@@ -297,10 +298,9 @@ body {
 
 .firstPage video {
     max-width: 55vw;
-    position: absolute;
-    bottom: 12%;
-    left: 50%;
-    translate: -50% 0;
+    margin-top: 9em;
+    margin-left: 50%;
+    transform: translateX(-50%);
 }
 
 .briefing {
@@ -308,15 +308,37 @@ body {
     height: 60vh;
     border-radius: 10px;
     font-family: "Montserrat", sans-serif;
-    background-image: url(../img/3d-casual-life-young-people-discussing-the-project.png);
-    background-size: contain;
-    background-position: right;
+    background-image: url(../img/Remote\ team-rafiki.png);
+    background-size: 45%;
+    background-position: 90%;
     background-repeat: no-repeat;
     box-sizing: border-box;
+    display: flex;
+    gap: 2em;
+}
+
+.briefing #attribution{
+    width: 35%;
+    aspect-ratio: 1/1;
+    margin-left: 170px;
+    border-radius: 50%;
+    position: relative;
+}
+#attribution a{
+    color: var(--text);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    opacity: 0;
+    transition: opacity 400ms ease;
+}
+#attribution:hover a{
+    opacity: 1;
 }
 
 .textContainer {
-    width: fit-content;
+    box-sizing: border-box;
+    margin-left: 15px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -327,7 +349,7 @@ body {
     margin: 0;
     padding: 10px 30px;
     box-sizing: border-box;
-    line-height: 50px;
+    line-height: 100%;
 }
 
 .colorText {
@@ -354,17 +376,16 @@ main h1 {
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    row-gap: 2em;
+    gap: 10px;
 }
 
 .planDetails .plan {
-    width: 40%;
-    height: 40%;
     border-radius: 30px;
     text-align: center;
     padding: 2%;
     font-size: 1rem;
     cursor: pointer;
+    flex: 1 1 15.5em;
 }
 
 .planDetails .plan:hover {
@@ -410,7 +431,7 @@ main h1 {
 }
 
 .streamsPreview .streams video {
-    max-width: 40vw;
+    max-width: 70%;
     border-radius: 10px;
 }
 
@@ -543,7 +564,7 @@ footer .information #mail::before {
     width: 0;
     height: 2px;
     transform: translate(-30px, 3px);
-    background-color: var(--background);
+    background-color: var(--text);
     transition: .2s linear;
     transition-property: width;
 }
