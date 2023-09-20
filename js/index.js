@@ -40,15 +40,13 @@ for (let i = 0; i < els.length; i++) {
                 if(element.checked){
                     span.style.rotate = "45deg";
                     answer.style.opacity = "1";
-                    answer.style.height = "10%";
-                    answer.style.padding = "1% 5%";
-                    
+                    answer.style.padding = " 1% 5%";
+                    answer.style.gridTemplateRows = "1fr";
                 }else {
                     span.style.rotate = "90deg";
                     answer.style.opacity = "0";
-                    answer.style.height = "0";
-                    answer.style.padding = "0 0";
-                    
+                    answer.style.padding = " 0";
+                    answer.style.gridTemplateRows = "0";
                 }
             }
         });

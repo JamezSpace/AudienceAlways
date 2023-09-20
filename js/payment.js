@@ -1,6 +1,15 @@
 // addEventListener("DOMContentLoaded", beginFunctions); -- this line is only needed if javascript file loaded from the head section of the html document, this because the head section is run before the body loads, hence, to avoid having null objects at rumtime of the head tag, the event listener "DOMContentLoaded" is used, that is, run once all DOM contents(body) are fully loaded.
 
 // consequently, the other option is to run your script in the body, that is, have the script code in the body rather the head, coz then, the body would be loading or have loaded, hence, having null wont happen
+const header = document.querySelector("header");
+
+addEventListener("scroll", (e) => {
+    if (scrollY > (header.clientHeight / 4)) {
+        header.style.boxShadow = "0 0 5px 0 #000";
+    } else {
+        header.style.boxShadow = "0 0 1px 0 #000";
+    }
+});
 
 beginFunctions();
 const textHeading = document.getElementById("payment_text");
@@ -24,13 +33,13 @@ function beginFunctions() {
 
 
     signUpButton.addEventListener("click", (e) => {
-        const result = valInputs(registerWithAA);
+        const result = validate_inputs(registerWithAA);
         console.log(result);
         const successBox = document.getElementById("registrationSuccess");
-        if (result == false) {
+        if (result == false || result == undefined) {
             e.preventDefault();
             alert("INVALID INPUT SOMEWHERE");
-        } else {
+        } else if(result == true){
             let body = document.getElementsByTagName("body")[0];
             body.style.overflow = "auto";
             window.location = "#payment";
@@ -40,7 +49,7 @@ function beginFunctions() {
     });
 }
 
-function valGenName() {
+function validate_name() {
     let valid = false;
     const nameField = document.getElementById("name");
     const status = document.getElementById("statusName");
@@ -49,13 +58,13 @@ function valGenName() {
 
     if (inputName.length == 0) {
         let notif = "  Name field cannot be left blank";
-        status.innerHTML = "<iconify-icon icon=\"clarity:error-line\" style=\"color: #ff2c2c;\" width=\"30\" height=\"30\"></iconify-icon>" + notif;
+        status.textContent = notif;
     } else if (inputName.split(" ").length < 2) {
         let notif = "  Fill in your full name separated by a space ' '";
-        status.innerHTML = "<i class=\"fa-solid fa-asterisk\"></i>" + notif;
+        status.textContent = notif;
     } else if (!letters.test(inputName)) {
         let notif = "  Only letter characters permitted";
-        status.innerHTML = "<i class=\"fa-solid fa-asterisk\"></i>" + notif;
+        status.textContent = notif;
     } else {
         valid = true;
         status.innerText = "";
@@ -64,15 +73,15 @@ function valGenName() {
     return [nameField, valid];
 }
 
-function valSName() {
+function validate_stream_name() {
     let valid = false;
-    const nameField = document.getElementById("s_name");
+    const nameField = document.getElementById("stream_name");
     const status = document.getElementById("statusSName");
     const inputSName = nameField.value.trim();
 
     if (inputSName.length == 0) {
         let notif = " Stream Name field cannot be left blank";
-        status.innerHTML = "<i class=\"fa-solid fa-asterisk\"></i>" + notif;
+        status.textContent = notif;
     } else {
         valid = true;
         status.innerText = "";
@@ -81,7 +90,7 @@ function valSName() {
     return [nameField, valid];
 }
 
-function valEmail() {
+function validate_email() {
     let valid = false;
     let notif = "";
     const email = document.getElementById("email");
@@ -91,12 +100,12 @@ function valEmail() {
 
     if (email.value.trim() == "") {
         notif = "  Email field cannot be left blank";
-        status.innerHTML = "<i class=\"fa-solid fa-asterisk\"></i>" + notif;
+        status.textContent = notif;
     }
 
     if (email.value.trim().length > 0 && emailsExt.indexOf(splitEmail[1]) != 0) {
         notif = "  Email extension not valid";
-        status.innerHTML = "<i class=\"fa-solid fa-asterisk\"></i>" + notif;
+        status.textContent = notif;
     }
 
     if (typeof splitEmail[0] === "string" && emailsExt.indexOf(splitEmail[1]) >= 0) {
@@ -107,7 +116,7 @@ function valEmail() {
     return [email, valid];
 }
 
-function valPlans() {
+function validate_plans() {
     let valid = false;
     const status = document.getElementById("statusPlan");
     const alpha = document.getElementById("alpha");
@@ -118,6 +127,7 @@ function valPlans() {
     const desc = document.querySelector(".planPaidDetails");
     const planPaid = document.getElementById("planPaid");
     const planPrice = document.getElementById("PlanPrice");
+    const card = document.getElementById("preview");
     // const plan_to_price = {
     //     "alpha" : `${}`, //empty slot is the price for Alpha Plan and the rest to be read from database
     //     "beta" : `${}`,
@@ -127,22 +137,26 @@ function valPlans() {
 
     if (alpha.checked == true) {
         valid = true;
-        desc.style.display = "flex";
+        card.classList.add("card");
+        desc.style.opacity = 1;
         planPaid.innerText = "Alpha Plan";
     } else if (beta.checked == true) {
         valid = true;
-        desc.style.display = "flex";
+        card.classList.add("card");
+        desc.style.opacity = 1;
         planPaid.innerText = "Beta Plan";
     } else if (delta.checked == true) {
         valid = true;
-        desc.style.display = "flex";
+        card.classList.add("card");
+        desc.style.opacity = 1;
         planPaid.innerText = "Delta Plan";
     } else if (gold.checked == true) {
         valid = true;
-        desc.style.display = "flex";
+        card.classList.add("card");
+        desc.style.opacity = 1;
         planPaid.innerText = "Gold Plan";
     } else {
-        status.innerHTML = "<i class=\"fa-solid fa-asterisk\"></i>" + "  Select a Plan above!";
+        status.textContent = "  Select a Plan above!";
     }
 
     if (valid) {
@@ -197,19 +211,19 @@ function timeOnChange(element) {
 
 const fullDate = document.getElementById("fullDate");
 
-function valDate() {
+function validate_date() {
     const status = document.getElementById("statusDate");
 
     if (fullDate.innerText.indexOf('by', 11) == -1) {
         let notif = "  Select a valid date and time";
-        status.innerHTML = "<i class=\"fa-solid fa-asterisk\"></i>" + notif;
+        status.textContent = notif;
     } else {
         valid = true;
         status.innerText = "";
     }
 }
 
-function valPassword() {
+function validate_password() {
     let valid = false;
     const passwordField = document.getElementById("password");
     const status = document.getElementById("statusPassword");
@@ -222,10 +236,10 @@ function valPassword() {
 
     if (inputPassword.length == 0) {
         let notif = "  Password field cannot be left blank";
-        status.innerHTML = "<i class=\"fa-solid fa-asterisk\"></i>" + notif;
+        status.textContent = notif;
     } else if (inputPassword.length < 4) {
         let notif = "  Password must exceed 4 characters";
-        status.innerHTML = "<i class=\"fa-solid fa-asterisk\"></i>" + notif;
+        status.textContent = notif;
     }
 
     if (inputPassword.length > 4) {
@@ -237,26 +251,33 @@ function valPassword() {
     return [passwordField, valid];
 }
 
-function valInputs(element) {
+function validate_inputs(element) {
     const invalids = [];
     const valids = [];
-    const resultName = valGenName();
-    const resultSName = valSName();
-    const resultEmail = valEmail();
-    const resultPlans = valPlans(); // just to call the function for checking plans on submit button click
-    valDate();
-    let resultPassword;
-    const array = [resultName, resultSName, resultEmail];
 
-    if (array[1][1]) // if name validation(item at index 1 in the array) is valid, store the name in a localStrorage that would be used by profile page. array[1] represents the input field for the name and array[1][1] represents the validation boolean.
-    {
-        localStorage.setItem("name", `${array[0][0].value}`);
-    }
+    /*
+        Input fields validation functions 
+            - Name (@return HTMLElement)
+            - Stream Name (@return HTMLElement)
+            - Email (@return HTMLElement)
+            - Plan (@return HTMLCollection)
+            - Date (@return )
+            - Password (@return HTMLElement)
+    */
+
+    validate_date();
+
+    // All HTMLElement elements is pushed to an array for further processing
+    const array = [validate_name(), validate_stream_name(), validate_email()];
+
+    // if (array[1][1]) // if name validation(item at index 1 in the array) is valid, store the name in a localStrorage that would be used by profile page. array[1] represents the input field for the name and array[1][1] represents the validation boolean.
+    // {
+    //     localStorage.setItem("name", `${array[0][0].value}`);
+    // }
 
     // if the registration checkbox is ticked then a password is required to setup a profile, implying there needs to be a password validation also. This is what this block of code does and this is only executed when all inputs are validated by this function.
     if (element.checked) {
-        resultPassword = valPassword();
-        array.push(resultPassword);
+        array.push(validate_password());
     }
 
     // SEPARATE THE VALID INPUT FIELDS FROM THE INVALIDS
@@ -275,13 +296,12 @@ function valInputs(element) {
         // TO CHANGE THE COLOR OF THE LINE FOR THE INVALID INPUTS TO RED
         for (let i = 0; i < invalids.length; i++) {
             const element = invalids[i];
-            element.style.border = "1.5px solid red";
+            element.classList.add("invalid");
         }
-        // AFTER CHANGING BOTTOM-BORDER LINE TO RED, UPON CORRECT ENTRY, CHANGE THE COLOR LINE TO GREEN
+        // AFTER CHANGING BORDER LINE TO RED, UPON CORRECT ENTRY, CHANGE THE COLOR LINE TO DEFAULT COLOR
         for (let i = 0; i < valids.length; i++) {
             const element = valids[i];
-            element.style.border = "1.5px solid gainsboro"; // default border settings
-
+            element.classList.remove("invalid");
         }
         return false;
     }
@@ -308,4 +328,6 @@ function valInputs(element) {
     if ((textHeading.innerText == "Purchase a Webinar" || textHeading.innerText == "Account Creation") && fullDate.innerText.length < 10) {
         return false;
     }
+
+    return true;
 }

@@ -10,6 +10,16 @@ html{
     scroll-behavior: smooth;
 }
 
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
 /* width */
 form::-webkit-scrollbar {
     width: 5px;
@@ -31,101 +41,95 @@ form::-webkit-scrollbar-thumb:hover {
     background: var(--secondary);
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Open Sans', sans-serif;
-    /* overflow: hidden; */
-}
-
-body::-webkit-scrollbar {
-    display: none;
-}
-
 header {
     width: 100%;
-    height: 10vh;
     padding: 0 2%;
-    box-sizing: border-box;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: var(--text);
+    box-sizing: border-box;
+    box-shadow: 0 0 1px 0 #000;
+    position: fixed;
+    top: 0;
+    z-index: 5;
 }
 
-.imageLogo {
-    width: 30%;
+#header-logo{
     height: inherit;
+    text-decoration: none;
+}
+
+#header-logo img{
+    max-height: 11.5vh;
+    object-fit: contain;
+}
+
+header nav{
+    width: 45%;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    cursor: pointer;
+    justify-content: space-between;
+}
+header nav a{
+    text-decoration: none;
+    color: var(--primary);
+    font-weight: 600;
 }
 
-.imageLogo img {
-    width: 15%;
-}
-
-.imageLogo .text {
-    margin-left: 1%;
-    color: var(--background);
-    font-size: 1.05rem;
-    font-family: "Montserrat", sans-serif;
-    font-weight: 700;
-    font-optical-sizing: auto;
-    letter-spacing: 6px;
-}
-
-.imageLogo::before {
-    content: "";
-    position: absolute;
-    width: 50%;
-    height: 2px;
-    transform: translate(0, 5vh);
-    background-color: var(--background);
-}
-
-.imageLogo .text span {
-    letter-spacing: .1px;
-    display: block;
-    transform: scale(1, .85);
+header nav a:hover{
+    text-decoration: underline;
 }
 
 main {
+    margin-top: 11.5vh;
     padding: 0 2.5%;
     position: relative;
 }
 
-.cross-page-vertical-slider {
-    width: 5%;
-    height: 170vh;
+/* Progress Bar */
+div.progress-bar{
+    position: absolute;
+    top: 25%;
+    transform: translateY(-75%);
+    height: 200px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translate(-1%, -50%);
 }
 
-.line {
-    width: 2px;
-    height: calc(170vh - 7%);
+div.progress-bar::before{
+    content: "";
     position: absolute;
-    top: 50%;
     left: 50%;
-    transform: translate(-40%, -50%);
-    background: rgb(28, 28, 28);
-    background: radial-gradient(circle, rgba(28, 28, 28, 1) 0%, rgba(3, 95, 143, 1) 90%, rgba(17, 225, 219, 1) 100%);
+    transform: translateX(-50%);
+    height: 100%;
+    width: 5px;
+    background-color: gainsboro;
+    z-index: -1;
 }
 
-#tear {
-    rotate: 180deg;
+div.step{
+    width: 30px;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    background-color: gainsboro;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.step:first-child:before{
+    content: "Form";
+    position: absolute;
+    top: -20px;
+    font-size: 85%;
+}
+
+div.step:last-child:after{
+    content: "Payment";
+    position: absolute;
+    bottom: -20px;
+    font-size: 85%;
 }
 
 .fill-form {
@@ -142,7 +146,7 @@ main {
     width: 50%;
     height: 95%;
     padding: 0 2.5%;
-    font-size: 1.25rem;
+    /* font-size: 1.15rem; */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -159,13 +163,16 @@ main {
     flex-direction: column;
 }
 
-.fill-form form .generalInputStyle {
-    height: 2.5vh;
+.fill-form form .input-text {
     border: 1.5px solid darkgray;
-    border-radius: 10px;
-    padding: 2% 3%;
-    font-size: 1.2rem;
+    border-radius: 5px;
+    padding: 1% 2%;
+    font-size: 1.125rem;
     outline: none;
+}
+
+input.input-text.invalid{
+    border: 1.5px solid red;
 }
 
 .entity {
@@ -174,13 +181,12 @@ main {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    row-gap: .5em;
-    column-gap: .5em;
+    gap: .5em;
 }
 
 .entity div {
-    width: 40%;
-    height: 8em;
+    flex: 1 1 40%;
+    aspect-ratio: 3/2.5;
     border: 1px solid gainsboro;
     border-radius: 20px;
     display: flex;
@@ -224,25 +230,16 @@ main {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    font-family: "Font Awesome 6 Free";
-    font-weight: 900;
-    font-size: 1.25em;
-    content: "\f00c";
+    content: url('https://api.iconify.design/mdi/tick.svg?color=white&width=15&height=15');
     background-color: black;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.entity div i {
-    font-size: 5rem;
-    display: block;
+    box-sizing: border-box;
+    display: inline-block;
+    padding: 2px 6px 5px 2.5px;
+    
 }
 
 .entity div h2 {
-    font-size: 1.5rem;
-    font-weight: 500;
+    font-size: 1.125rem;
     margin-bottom: 0;
 }
 
@@ -268,13 +265,11 @@ main {
 .registerMe input[type="checkbox"] {
     width: 20px;
     height: 20px;
-    /* come back to style the checkbox and change border color to gainsboro */
 }
 
-.fa-asterisk {
-    color: red;
-    font-size: 0.9rem;
-    display: inline-flex;
+.registerMe label{
+    margin-left: 2.5px;
+    font-size: 1.5vw;
 }
 
 .fill-form form p {
@@ -292,11 +287,13 @@ main {
     cursor: pointer;
 }
 
-.fill-form .image {
+.fill-form #form-summary {
     width: 47%;
     height: 95%;
     border-radius: 15px;
-    background-color: black;
+    background-image: url('../img/form-summary-pic.svg');
+    background-position: center;
+    background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -305,43 +302,40 @@ main {
     position: relative;
 }
 
-.image img {
-    width: 50%;
-    height: 40%;
-    object-fit: contain;
-    /* object-position: center; */
+.card {
+    width: 95%;
+    height: 95%;
+    backdrop-filter: blur(2px) saturate(180%);
+    -webkit-backdrop-filter: blur(2px) saturate(180%);
+    background-color: rgba(3, 95, 143, 0.5);
+    border-radius: 12px;
+    border: 1px solid rgba(209, 213, 219, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.image .description {
-    width: 100%;
-    height: 60%;
-    border-radius: 0 0 15px 15px;
-    padding: 7% 0;
-    box-sizing: border-box;
-    background-color: blueviolet;
+div#preview{
+    transition: all 200ms linear;
 }
 
-.description ul {
-    padding-inline-start: 35%;
-}
-
-.image .planPaidDetails {
-    width: 50%;
-    height: 15%;
+#form-summary .planPaidDetails {
+    width: 200px;
+    aspect-ratio: 3/1.25;
     border-radius: 10px;
-    padding: 1.5%;
+    padding: 10px;
     box-sizing: border-box;
-    position: absolute;
-    display: none;
+    display: flex;
     align-items: center;
     background-color: aliceblue;
-    bottom: 52%;
+    opacity: 0;
+    transition: opacity 200ms linear;
 }
 
 .planPaidDetails .icon {
     width: 60px;
     height: 60px;
-    border-radius: 10px;
+    border-radius: 6.25px;
     background-color: chocolate;
 }
 
@@ -423,33 +417,3 @@ main {
     margin-top: 2.5%;
 }
 
-footer{
-    width: 100%;
-    height: 15vh;
-    background-color: var(--text);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 2.5%;
-    box-sizing: border-box;
-}
-
-#footerLogo{
-    height: inherit;
-    text-decoration: none;
-}
-
-#footerLogo img{
-    max-height: 15vh;
-    object-fit: contain;
-}
-
-footer a:not(:first-of-type){
-    text-decoration: none;
-    color: var(--primary);
-    font-weight: 600;
-}
-
-footer a:not(:first-of-type):hover{
-    text-decoration: underline;
-}
