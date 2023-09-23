@@ -3,13 +3,18 @@ function resetDisplay() {
     let form_body = document.getElementById("fill-form");
     let form_preview = document.getElementById("form-summary");
 
-    if (window.screen.width > 600) {
+    if (window.screen.width > 768) {
         form_body.append(form_preview);
+        // firstElementChild of form_body is the form within
+        form_body.firstElementChild.style.width = "50%"; 
+        form_preview.classList.add("page-active");
     }else{
         try{
             main.insertAdjacentElement(1, form_preview);
         }catch(DOMException){}
         editProgressBar();
+        form_preview.style.width = "100%";
+        form_preview.style.height = "86vh";
     }
     console.log(main);
 }
