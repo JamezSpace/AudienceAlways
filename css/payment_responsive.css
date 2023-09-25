@@ -1,4 +1,4 @@
-@media (max-width : 600px){
+@media screen and (max-width : 768px){
     *{
         margin: 0;
         padding: 0;
@@ -6,13 +6,19 @@
     .fill-form{
         padding: 0;
     }
-    .fill-form #form-summary{
+    /* .fill-form #form-summary{
         display: none;
-    }
+    } */
     .fill-form form{
         width: 100%;
     }
     .registerMe label{
         font-size: 3.25vw;
+    }
+}
+
+@media screen and (max-width : 730px) {
+    header nav{
+        font-size: 0.75em;
     }
 }
