@@ -8,15 +8,17 @@ function resetDisplay() {
         // firstElementChild of form_body is the form within
         form_body.firstElementChild.style.width = "50%"; 
         form_preview.classList.add("page-active");
+        document.getElementById("action_buttons").style.display = "none";
     }else{
         try{
             main.insertAdjacentElement(1, form_preview);
         }catch(DOMException){}
         editProgressBar();
         form_preview.style.width = "100%";
-        form_preview.style.height = "86vh";
+        form_preview.style.height = "83vh";
+        form_preview.style.backgroundSize = "75%";
+        document.getElementById("preview").style.margin = "10px auto";
     }
-    console.log(main);
 }
 
 function editProgressBar() {
@@ -28,9 +30,12 @@ function editProgressBar() {
     new_btn = new_btn.body.firstChild;
     
     progressBar.appendChild(new_btn);
-    disableButtons();
+    disableButtons(document.querySelectorAll("button.step"));
 }
 
-
+// function disableButtonsPromise(){
+//     return new Promise((e) => {
+        
+//     });
+// }
 resetDisplay();
-
