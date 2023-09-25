@@ -1,8 +1,5 @@
-// addEventListener("DOMContentLoaded", beginFunctions); -- this line is only needed if javascript file loaded from the head section of the html document, this because the head section is run before the body loads, hence, to avoid having null objects at rumtime of the head tag, the event listener "DOMContentLoaded" is used, that is, run once all DOM contents(body) are fully loaded.
-
-// consequently, the other option is to run your script in the body, that is, have the script code in the body rather the head, coz then, the body would be loading or have loaded, hence, having null wont happen
+// nav bar
 const header = document.querySelector("header");
-
 addEventListener("scroll", (e) => {
     if (scrollY > (header.clientHeight / 4)) {
         header.style.boxShadow = "0 0 5px 0 #000";
@@ -10,6 +7,22 @@ addEventListener("scroll", (e) => {
         header.style.boxShadow = "0 0 1px 0 #000";
     }
 });
+
+
+disableButtons(document.querySelectorAll("button.step"));
+
+// progress bar
+function disableButtons(buttons) {
+    for (let i = 0; i < buttons.length; i++) {
+        const btn = buttons[i];
+        if (!btn.classList.contains("step-active")) {
+            btn.disabled = true;
+        }   
+    }    
+}
+
+let step_num = 0;
+const pages = document.getElementsByClassName("page");
 
 beginFunctions();
 const textHeading = document.getElementById("payment_text");
@@ -39,15 +52,56 @@ function beginFunctions() {
         if (result == false || result == undefined) {
             e.preventDefault();
             alert("INVALID INPUT SOMEWHERE");
-        } else if(result == true){
-            let body = document.getElementsByTagName("body")[0];
-            body.style.overflow = "auto";
-            window.location = "#payment";
-            body.style.overflow = "hidden";
+        } else if (result == true) {
+            step_num++;
+            activate_progressBar(document.querySelectorAll("button.step"));
+            next_page();
+
+
+            // window.location.href = "#payment";
             // document.aud_form.action = "member.html";
         }
     });
 }
+
+function activate_progressBar(buttons) {
+    // let form_preview = document.getElementById("form-summary");
+    // if (form_preview.classList.contains("page-active")) {
+        
+    // }
+    // enable all buttons
+    buttons.forEach(btn => {
+        btn.disabled = false;
+    });
+}
+
+function updateProgressBar() {
+    buttons.forEach(step, id => {
+        if (id < step_num + 1) {
+            step.classList.add("step-active");
+        } else {
+            step.classList.remove("step-active");
+        }
+    });
+}
+
+function next_page() {
+    const pages = document.getElementsByClassName("page");
+    const current_step_num = function() {
+        for (let i = 0; i < pages.length; i++) {
+            if (pages[i].classList.contains("page-active")) {
+                return pages[i].dataset.step;
+            }
+        }
+    }();
+    
+    // current_step_num is actually the index of the next page to be revealed
+   if (current_step_num < 3) {
+        pages[current_step_num].classList.add("page-active");
+        pages[current_step_num - 1].classList.remove("page-active");
+   }
+}
+
 
 function validate_name() {
     let valid = false;
@@ -309,13 +363,13 @@ function validate_inputs(element) {
     // this ensures the plan is selected for successful submission
     const radioButtons = document.getElementsByClassName("select");
     let count = 0;
-    
+
     for (let index = 0; index < radioButtons.length; index++) {
         const element = radioButtons[index];
 
         if (!element.checked) {
-            count ++;
-        }else{
+            count++;
+        } else {
             break;
         }
 
