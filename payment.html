@@ -23,6 +23,7 @@
     <main>
         <!-- this is the custom progress bar -->
         <div class="progress-bar">
+            <progress max="2" value="" id="progressline"></progress>
             <button class="step step-active">1</button>
             <button class="step">2</button>
         </div>
@@ -91,7 +92,7 @@
                 <br>
 
                 Date <p id="fullDate"></p>
-                <div class="scheduleDate" onmouseout="validate_date()">
+                <div class="scheduleDate">
                     <input type="date" name="s_date" id="sch_date" class="input-text" onchange="dateOnChange(this)">
                     <input type="time" name="s_time" id="sch_time" class="input-text" onchange="timeOnChange(this)">
                 </div>
