@@ -223,12 +223,54 @@ a.nav-links {
     align-items: center;
 }
 
-
 #hamburger-menu{
     padding: 3px;
     color: var(--text);
     height: inherit;
     display: none;
+    position: relative;
+}
+
+.firstPage nav a span {
+    border-bottom-left-radius: 10px;
+    position: absolute;
+    z-index: 2;
+    display: inline-block;
+    top: 0;
+    right: 0;
+    aspect-ratio: 1/1;
+    animation-name: growOut;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-direction: normal;
+    animation-play-state: paused;
+    animation-fill-mode: forwards; 
+}
+
+@keyframes growOut {
+    0% {
+        width: 10px;
+        background-color: transparent;
+    }
+
+    100% {
+        width: 120vh;
+        border-bottom-left-radius: 120vh;
+        background-color: #C8D3DA;
+    }
+}
+
+@keyframes shrinkIn{
+    0%{
+        background-color: #C8D3DA;
+        border-bottom-left-radius: 120vw;
+        width: 120vh;
+    }
+    100%{
+        width: 10px;
+        border-bottom-left-radius: 10px;
+        background-color: transparent;
+    }
 }
 
 a.nav-links:hover {

@@ -1,3 +1,24 @@
+// animation on nav bar icon click - mobile version
+let button = document.getElementById("hamburger-menu");
+let circle = document.getElementById("circle");
+
+circle.addEventListener("animationend", () => {
+    let circle_animation = circle.getAnimations();
+
+    if (circle_animation[0].animationName == "growOut") {
+        circle.style.animationPlayState = "paused";
+        circle.style.animationName = "shrinkIn";
+    } else if (circle_animation[0].animationName == "shrinkIn") {
+        circle.style.animationName = "growOut";
+        circle.style.animationPlayState = "paused";
+    }
+});
+
+button.addEventListener("click", () => {
+    circle.style.animationPlayState = "running";
+    // circle.style.backgroundColor = "#C8D3DA";
+});
+
 // open or close login page
 const openLogin = document.getElementById("openLogin");
 const exit = document.getElementById("exitLogin");
@@ -36,13 +57,13 @@ for (let i = 0; i < els.length; i++) {
         // parent.nextElementSibling is the answer block that is sibling to the question div
         answers.forEach(answer => {
             const span = parent.lastElementChild;
-            if (answer == parent.nextElementSibling){
-                if(element.checked){
+            if (answer == parent.nextElementSibling) {
+                if (element.checked) {
                     span.style.rotate = "45deg";
                     answer.style.opacity = "1";
                     answer.style.padding = " 1% 5%";
                     answer.style.gridTemplateRows = "1fr";
-                }else {
+                } else {
                     span.style.rotate = "90deg";
                     answer.style.opacity = "0";
                     answer.style.padding = " 0";

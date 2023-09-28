@@ -12,6 +12,7 @@
     }
     .firstPage header nav{
         justify-content: flex-end;
+        font-size: 0.75em;
     }
     a.nav-links{
         display: none;
