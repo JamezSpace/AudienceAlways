@@ -17,8 +17,8 @@ function disableButtons(buttons) {
         const btn = buttons[i];
         if (!btn.classList.contains("step-active")) {
             btn.disabled = true;
-        }   
-    }    
+        }
+    }
 }
 
 let step_num = 0;
@@ -67,7 +67,7 @@ function beginFunctions() {
 function activate_progressBar(buttons) {
     // let form_preview = document.getElementById("form-summary");
     // if (form_preview.classList.contains("page-active")) {
-        
+
     // }
     // enable all buttons
     buttons.forEach(btn => {
@@ -75,31 +75,46 @@ function activate_progressBar(buttons) {
     });
 }
 
-function updateProgressBar() {
-    buttons.forEach(step, id => {
-        if (id < step_num + 1) {
-            step.classList.add("step-active");
-        } else {
-            step.classList.remove("step-active");
-        }
-    });
+let stage = 0;
+function updateProgressBar(buttons, num) {
+    const progress = document.getElementById("progressline");
+    num = parseInt(num) - 1;
+    
+    // adds 1 to the value of the progress bar and makes the next button active
+    if (buttons[num].parentNode.className == "progress-bar") {
+        stage++;
+        progress.value = stage;
+        buttons[num].classList.add("step-active");
+    }else if(buttons[num].parentNode.className == "progress-bar-horizantal"){
+        stage++;
+        progress.value = stage;
+        buttons[num + 1].classList.add("step-active");
+    }
+    
 }
 
 function next_page() {
     const pages = document.getElementsByClassName("page");
-    const current_step_num = function() {
+    const current_step_num = function () {
+        let num;
         for (let i = 0; i < pages.length; i++) {
             if (pages[i].classList.contains("page-active")) {
-                return pages[i].dataset.step;
+                num = pages[i].dataset.step;
             }
         }
+        return num;
     }();
-    
+    let num = current_step_num;
+
     // current_step_num is actually the index of the next page to be revealed
-   if (current_step_num < 3) {
+    if (current_step_num < 3) {
         pages[current_step_num].classList.add("page-active");
-        pages[current_step_num - 1].classList.remove("page-active");
-   }
+
+        for (num; num > 0; num--) {
+            pages[num - 1].classList.remove("page-active");
+        }
+    }
+    updateProgressBar(document.querySelectorAll("button.step"), current_step_num);
 }
 
 
@@ -251,15 +266,24 @@ function dateOnChange(element) {
 
 function timeOnChange(element) {
     const fullDate = document.getElementById("fullDate");
-    let fullTime = element.value;
-    let hour = fullTime.substr(0, 2);
+    const fullTime = element.value;
+    const hour = fullTime.substr(0, 2);
+    let updateTime;
+    let hEdit = hour % 12;
+    hEdit = hEdit || 12;
+    let time = ` by ${hEdit}:${fullTime.substr(3, 2)} ${hour >= 12 ? "PM" : "AM"}`;
 
+    
     if (fullDate.innerText == "") {
         element.style.border = "1.5px solid red";
         alert("Fill in the Date Section firstly");
-    } else {
+    } else if(fullDate.innerText.includes("by")){
+        updateTime = fullDate.innerText.indexOf("by") - 1;
+        fullDate.innerText = fullDate.innerText.replace(fullDate.innerText.substring(updateTime), time);
+    }
+    else {
         element.style.border = "1.5px solid darkgray";
-        fullDate.innerText += ` by ${hour % 12}:${fullTime.substr(3, 2)} ${hour > 12 ? "PM" : "AM"}`;
+        fullDate.innerText += time;
     }
 }
 
