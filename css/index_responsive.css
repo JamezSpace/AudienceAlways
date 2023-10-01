@@ -1,33 +1,62 @@
 /* TABLET CONFIGURATION */
 @media (max-width: 768px) {
-    html{
+    html {
         font-size: 13.5px;
     }
 }
 
-@media (max-width : 500px) {
-    html, body{
+@media (max-width : 600px) {
+
+    html,
+    body {
         width: 100%;
         overflow-x: hidden;
     }
-    .firstPage header nav{
+
+    .firstPage header nav {
         justify-content: flex-end;
         font-size: 0.75em;
     }
-    a.nav-links{
+
+    .firstPage header nav ul {
+        height: 50%;
         display: none;
+        width: 50%;
+        justify-content: space-evenly;
+        box-sizing: border-box;
     }
-    #hamburger-menu{
+
+    .firstPage header nav ul li {
+        width: 100%;
+        height: 50%;
+        font-size: 1.25rem;
+    }
+
+    .firstPage header nav ul li a {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    #openLogin{
+        font-size: 1rem;
+    }
+    a.nav-links:hover{
+        border-bottom: 0; /*overriding default style*/
+        text-decoration: underline;
+    }
+
+    #hamburger-menu {
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
-    .firstPage article h1{
+    .firstPage article h1 {
         font-size: 1.55em;
     }
 
-    .streamsPreview .streams video{
+    .streamsPreview .streams video {
         max-width: 80%;
     }
 }

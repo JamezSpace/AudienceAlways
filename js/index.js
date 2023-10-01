@@ -2,6 +2,10 @@
 let button = document.getElementById("hamburger-menu");
 let circle = document.getElementById("circle");
 
+function lockScroll() {
+    document.body.classList.toggle("lock-scroll");
+}
+
 circle.addEventListener("animationend", () => {
     let circle_animation = circle.getAnimations();
 
@@ -12,11 +16,32 @@ circle.addEventListener("animationend", () => {
         circle.style.animationName = "growOut";
         circle.style.animationPlayState = "paused";
     }
+
+    lockScroll();
 });
 
-button.addEventListener("click", () => {
+button.addEventListener("click", async () => {
     circle.style.animationPlayState = "running";
-    // circle.style.backgroundColor = "#C8D3DA";
+    const nav = document.querySelector("div.firstPage header ul");
+
+    if (button.firstElementChild.icon == "mdi:hamburger-menu") {
+        button.firstElementChild.icon = "ph:x-bold";
+        button.firstElementChild.style.zIndex = "5";
+        setTimeout(function () {
+            nav.style.position = "absolute";
+            nav.style.top = "50%";
+            nav.style.transform = "translate(-50%, -50%)";
+            nav.style.display = "flex";
+            nav.style.zIndex = "3";
+            nav.style.flexDirection = "column";
+            console.log("done");
+        }, 600);
+    } else {
+        button.firstElementChild.icon = "mdi:hamburger-menu";
+        nav.style.display = "none";
+        button.firstElementChild.style.zIndex = "0";
+    }
+
 });
 
 // open or close login page
