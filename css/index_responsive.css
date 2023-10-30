@@ -6,7 +6,6 @@
 }
 
 @media (max-width : 600px) {
-
     html,
     body {
         width: 100%;
@@ -58,5 +57,17 @@
 
     .streamsPreview .streams video {
         max-width: 80%;
+    }
+}
+
+@media screen and (max-width : 400px) {
+    footer{
+        justify-content: center;
+    }
+    footer #footerLogo{
+        flex: 0 1 50%;
+    }
+    footer div section{
+        flex: none;
     }
 }

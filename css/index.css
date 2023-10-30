@@ -364,24 +364,28 @@ a.nav-links:hover {
 
 .briefing {
     width: 100%;
-    height: 60vh;
+    max-height: 80vh;
     border-radius: 10px;
     font-family: "Montserrat", sans-serif;
-    background-image: url(../img/Remote\ team-rafiki.png);
-    background-size: 45%;
-    background-position: 90%;
-    background-repeat: no-repeat;
-    box-sizing: border-box;
     display: flex;
-    gap: 2em;
+    align-items: center;
+    box-sizing: border-box;
+    margin: 15px 0;
+    position: relative;
 }
 
-.briefing #attribution {
+.briefing img{
+    width: 100%;
+    object-fit: cover;
+}
+
+/* .briefing #attribution {
     width: 35%;
     aspect-ratio: 1/1;
     margin-left: 170px;
     border-radius: 50%;
     position: relative;
+    background-color: red;
 }
 
 #attribution a {
@@ -395,26 +399,22 @@ a.nav-links:hover {
 
 #attribution:hover a {
     opacity: 1;
-}
+} */
 
-.textContainer {
-    box-sizing: border-box;
-    margin-left: 15px;
-    height: 100%;
+.briefing .textContainer {
+    width: 100%;
+    aspect-ratio: 1/1;
     display: flex;
+    justify-content: center;
     align-items: center;
     backdrop-filter: blur(3px);
-}
-
-.briefing h1 {
-    margin: 0;
-    padding: 10px 30px;
     box-sizing: border-box;
-    line-height: 100%;
+    font-size: 120%;
+    position: absolute;
 }
 
 .colorText {
-    font-size: 3rem;
+    font-size: 3.5rem;
     background: linear-gradient(to bottom right, var(--primary), var(--accent));
     color: transparent;
     background-clip: text;
@@ -497,14 +497,10 @@ main h1 {
 }
 
 #faqs {
-    --shadow-color: #23282a58;
-
-    padding: 10px 0;
+    padding: 5px 0 0.5px 0;
     border-radius: 50px 50px 0 0;
-    /* background: var(--background); */
-    background: #D5E4EE;
-    box-shadow: 3px 3px 10px var(--shadow-color),
-        0px 0px 10px var(--shadow-color);
+    background: var(--background);
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 #faqs h1 {
@@ -517,6 +513,8 @@ main h1 {
 }
 
 .division .question {
+    --shadow-color: #23282a58;
+
     width: 100%;
     padding: 0 3%;
     box-sizing: border-box;
@@ -524,7 +522,7 @@ main h1 {
     justify-content: space-between;
     align-items: center;
     position: relative;
-    border-top: 0.5px solid var(--accent);
+    border-top: 0.5px solid var(--shadow-color);
     font-size: 1rem;
 }
 
@@ -562,18 +560,19 @@ main h1 {
 
 footer {
     width: 100%;
-    height: 50vh;
-    padding: 3%;
+    padding: 5% 3%;
     box-sizing: border-box;
     background-color: var(--background);
     color: var(--text);
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 }
 
-#footerLogo {
+footer #footerLogo {
     opacity: 0.9;
-    width: 50%;
+    /* width: 50%; */
+    flex: 0 1 45%;
 }
 
 footer img {
@@ -584,9 +583,14 @@ footer img {
 }
 
 footer div {
-    width: 70%;
+    flex:  1 1 55%;
     display: flex;
     justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+footer div section{
+    flex: 1 1 40%;
 }
 
 footer a {
@@ -599,11 +603,6 @@ footer a {
 footer a:hover {
     opacity: 1;
 }
-
-footer .information .socialProfiles {
-    margin-top: 10px;
-}
-
 
 footer .information a::before {
     margin-right: 10px;

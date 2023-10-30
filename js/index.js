@@ -3,7 +3,7 @@ let button = document.getElementById("hamburger-menu");
 let circle = document.getElementById("circle");
 
 function lockScroll() {
-    document.body.classList.toggle("lock-scroll");
+    document.querySelector("div.firstPage").classList.toggle("lock-scroll");
 }
 
 circle.addEventListener("animationend", () => {
@@ -34,7 +34,6 @@ button.addEventListener("click", async () => {
             nav.style.display = "flex";
             nav.style.zIndex = "3";
             nav.style.flexDirection = "column";
-            console.log("done");
         }, 600);
     } else {
         button.firstElementChild.icon = "mdi:hamburger-menu";
