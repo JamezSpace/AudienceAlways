@@ -6,6 +6,7 @@
 }
 
 @media (max-width : 600px) {
+
     html,
     body {
         width: 100%;
@@ -37,11 +38,14 @@
         display: flex;
         justify-content: center;
     }
-    #openLogin{
+
+    #openLogin {
         font-size: 1rem;
     }
-    a.nav-links:hover{
-        border-bottom: 0; /*overriding default style*/
+
+    a.nav-links:hover {
+        border-bottom: 0;
+        /*overriding default style*/
         text-decoration: underline;
     }
 
@@ -58,16 +62,16 @@
     .streamsPreview .streams video {
         max-width: 80%;
     }
-}
 
-@media screen and (max-width : 400px) {
-    footer{
+    footer {
         justify-content: center;
     }
-    footer #footerLogo{
+
+    footer #footerLogo {
         flex: 0 1 50%;
     }
-    footer div section{
+
+    footer div section {
         flex: none;
     }
 }
