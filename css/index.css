@@ -364,11 +364,12 @@ a.nav-links:hover {
 
 .briefing {
     width: 100%;
-    max-height: 80vh;
+    max-height: 100%;
     border-radius: 10px;
     font-family: "Montserrat", sans-serif;
     display: flex;
     align-items: center;
+    justify-content: center;
     box-sizing: border-box;
     margin: 15px 0;
     position: relative;
@@ -403,13 +404,14 @@ a.nav-links:hover {
 
 .briefing .textContainer {
     width: 100%;
-    aspect-ratio: 1/1;
+    /* background-color: rebeccapurple; */
+    aspect-ratio: 1.07/1;
     display: flex;
     justify-content: center;
     align-items: center;
     backdrop-filter: blur(3px);
     box-sizing: border-box;
-    font-size: 120%;
+    font-size: 105%;
     position: absolute;
 }
 
